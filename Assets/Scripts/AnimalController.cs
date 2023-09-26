@@ -1,4 +1,5 @@
 using UnityEngine;
+using Photon.Pun;
 
 [RequireComponent(typeof(Rigidbody))]
 public class AnimalController : MonoBehaviour
@@ -9,18 +10,24 @@ public class AnimalController : MonoBehaviour
     private Rigidbody rb;
     private float horizontalInput;
     private float verticalInput;
+    private PhotonView view;
 
     private void Start()
     {
         rb = GetComponent<Rigidbody>();
         rb.freezeRotation = true; // Disable physics-driven rotation
+        view = GetComponent<PhotonView>();
     }
 
-    private void Update()
+    private
+        void Update()
     {
-        // Get input for movement
-        horizontalInput = Input.GetAxis("Horizontal");
-        verticalInput = Input.GetAxis("Vertical");
+        if (view.IsMine)
+        {
+            // Get input for movement
+            horizontalInput = Input.GetAxis("Horizontal");
+            verticalInput = Input.GetAxis("Vertical");
+        }
     }
 
     private void FixedUpdate()
