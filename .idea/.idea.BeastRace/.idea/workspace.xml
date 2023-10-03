@@ -6,8 +6,6 @@
   <component name="ChangeListManager">
     <list default="true" id="5e7252a9-681e-4216-8f7e-e966695ba977" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/.idea.BeastRace/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.BeastRace/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scenes/Playground.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scenes/Playground.unity" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/AnimalController.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/AnimalController.cs" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -54,7 +52,7 @@
       <method v="2" />
     </configuration>
     <configuration name="Start Unity" type="RunUnityExe" factoryName="Unity Executable">
-      <option name="EXE_PATH" value="D:\workspace\2021.3.21f1\Editor\Unity.exe" />
+      <option name="EXE_PATH" value="D:\Games\Unity\2021.3.21f1\Editor\Unity.exe" />
       <option name="PROGRAM_PARAMETERS" value="-projectPath D:\Games\Unity\BeastRace -debugCodeOptimization" />
       <option name="WORKING_DIRECTORY" value="D:\Games\Unity\BeastRace" />
       <option name="PASS_PARENT_ENVS" value="1" />
@@ -62,7 +60,7 @@
       <method v="2" />
     </configuration>
     <configuration name="Unit Tests (batch mode)" type="RunUnityExe" factoryName="Unity Executable">
-      <option name="EXE_PATH" value="D:\workspace\2021.3.21f1\Editor\Unity.exe" />
+      <option name="EXE_PATH" value="D:\Games\Unity\2021.3.21f1\Editor\Unity.exe" />
       <option name="PROGRAM_PARAMETERS" value="-runTests -batchmode -projectPath D:\Games\Unity\BeastRace -testResults Logs/results.xml -testPlatform EditMode -debugCodeOptimization" />
       <option name="WORKING_DIRECTORY" value="D:\Games\Unity\BeastRace" />
       <option name="PASS_PARENT_ENVS" value="1" />
