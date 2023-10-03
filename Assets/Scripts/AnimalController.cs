@@ -1,16 +1,18 @@
 using System;
 using UnityEngine;
+using Photon.Pun;
 
 [RequireComponent(typeof(Rigidbody))]
 public class AnimalController : MonoBehaviour
 {
     public float moveSpeed = 5f;
     public float rotationSpeed = 60f;
-
+    public float DriftAngle = 3f;
     private Rigidbody rb;
     private float horizontalInput;
     private float verticalInput;
     private Animator anim;
+    private PhotonView view;
 
     private void Awake()
     {
@@ -22,20 +24,47 @@ public class AnimalController : MonoBehaviour
     {
         rb = GetComponent<Rigidbody>();
         rb.freezeRotation = true; // Disable physics-driven rotation
+        view = GetComponent<PhotonView>();
     }
 
     private void Update()
     {
-        // 움직임 관리
-        horizontalInput = Input.GetAxis("Horizontal");
-        verticalInput = Input.GetAxis("Vertical");
-        
+        if (view.IsMine)
+        {
+            // 움직임 관리
+            horizontalInput = Input.GetAxis("Horizontal");
+            verticalInput = Input.GetAxis("Vertical");
+
+            if (Input.GetKeyDown(KeyCode.S) || (Input.GetKeyDown(KeyCode.DownArrow)))
+            {
+                // 좌우를 반전시킴
+                rotationSpeed = -rotationSpeed;
+            }
+
+            if (Input.GetKeyUp(KeyCode.S) || (Input.GetKeyUp(KeyCode.DownArrow)))
+            {
+                // 좌우를 반전시킨것 되돌림
+                rotationSpeed = -rotationSpeed;
+            }
+            
+            if (Input.GetKeyDown(KeyCode.LeftShift))
+            {
+                // 좌우를 반전시킴
+                rotationSpeed = DriftAngle * rotationSpeed;
+            }
+
+            if (Input.GetKeyUp(KeyCode.LeftShift))
+            {
+                // 좌우를 반전시킨것 되돌림
+                rotationSpeed = 1/DriftAngle * rotationSpeed ;
+            }
+        }
     }
 
     private void FixedUpdate()
     {
-        //좌우키 입력시 애니매이션 재생
-        if (Input.GetAxis("Horizontal") != 0)
+        //키 입력시 애니매이션 재생
+        if (Input.GetAxis("Horizontal") != 0 || Input.GetAxis("Vertical")  != 0)
         {
             anim.SetBool("isRunning", true);
         }
@@ -43,16 +72,7 @@ public class AnimalController : MonoBehaviour
         {
             anim.SetBool("isRunning", false);
         }
-        //전진,후진 키 입력시 애니매이션 재생
-        if (Input.GetAxis("Vertical") != 0)
-        {
-            anim.SetBool("isRunning", true);
-        }
-        else
-        {
-            anim.SetBool("isRunning", false);
-        }
-        
+
         // 이동거리 계산
         Vector3 movementDirection = transform.forward * verticalInput;
         rb.velocity = movementDirection * moveSpeed;
