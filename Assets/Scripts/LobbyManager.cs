@@ -14,6 +14,10 @@ public class LobbyManager : MonoBehaviourPunCallbacks
     public GameObject roomPanel;
     public TextMeshProUGUI roomName;
 
+    public RoomItem RoomItemPrefab;
+    private List<RoomItem> roomItemsList = new List<RoomItem>();
+    public Transform contentObject;
+
     private void Start()
     {
         PhotonNetwork.JoinLobby();
@@ -32,5 +36,43 @@ public class LobbyManager : MonoBehaviourPunCallbacks
         lobbyPanel.SetActive(false);
         roomPanel.SetActive(true);
         roomName.text = "방 이름 : " + PhotonNetwork.CurrentRoom.Name;
+    }
+
+    public override void OnRoomListUpdate(List<RoomInfo> roomList)
+    {
+        UpdateRoomList(roomList);
+    }
+
+    void UpdateRoomList(List<RoomInfo> list)
+    {
+        foreach (RoomItem item in roomItemsList)
+        {
+            Destroy(item.gameObject);
+        }
+        roomItemsList.Clear();
+
+        foreach (RoomInfo room in list)
+        {
+            RoomItem newRoom = Instantiate(RoomItemPrefab, contentObject);
+            newRoom.SetRoomName(room.Name);
+            roomItemsList.Add(newRoom);
+            
+        }
+        
+    }
+    public void JoinRoom(string roomName)
+    {
+        PhotonNetwork.JoinRoom(roomName);
+    }
+
+    public void OnClickLeaveRoom()
+    {
+        PhotonNetwork.LeaveLobby();
+    }
+
+    public override void OnLeftRoom()
+    {
+        roomPanel.SetActive(false);
+        lobbyPanel.SetActive(true);
     }
 }
