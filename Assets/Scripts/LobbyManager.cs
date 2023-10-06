@@ -18,6 +18,9 @@ public class LobbyManager : MonoBehaviourPunCallbacks
     private List<RoomItem> roomItemsList = new List<RoomItem>();
     public Transform contentObject;
 
+    public float timeBetweenUpdates = 1.5f;
+    private float nextUpdateTime;
+
     private void Start()
     {
         PhotonNetwork.JoinLobby();
@@ -40,7 +43,11 @@ public class LobbyManager : MonoBehaviourPunCallbacks
 
     public override void OnRoomListUpdate(List<RoomInfo> roomList)
     {
-        UpdateRoomList(roomList);
+        if (Time.time >= nextUpdateTime)
+        {
+            UpdateRoomList(roomList);
+            nextUpdateTime = Time.time + timeBetweenUpdates;
+        }
     }
 
     void UpdateRoomList(List<RoomInfo> list)
@@ -67,12 +74,17 @@ public class LobbyManager : MonoBehaviourPunCallbacks
 
     public void OnClickLeaveRoom()
     {
-        PhotonNetwork.LeaveLobby();
+        PhotonNetwork.LeaveRoom();
     }
 
     public override void OnLeftRoom()
     {
         roomPanel.SetActive(false);
         lobbyPanel.SetActive(true);
+    }
+
+    public override void OnConnectedToMaster()
+    {
+        PhotonNetwork.JoinLobby();
     }
 }
