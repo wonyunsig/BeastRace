@@ -377,21 +377,6 @@ PrefabInstance:
       propertyPath: m_Name
       value: Stegasaurus
       objectReference: {fileID: 0}
-    - target: {fileID: 6805976632861168564, guid: ce3eabaa3bdeabc4385b7c6a9f8f3e99,
-        type: 3}
-      propertyPath: m_IsActive
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 7362189547880775677, guid: ce3eabaa3bdeabc4385b7c6a9f8f3e99,
-        type: 3}
-      propertyPath: m_UseGravity
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 8407555772998665477, guid: ce3eabaa3bdeabc4385b7c6a9f8f3e99,
-        type: 3}
-      propertyPath: moveSpeed
-      value: 23
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: ce3eabaa3bdeabc4385b7c6a9f8f3e99, type: 3}
 --- !u!1001 &4058760312678062631
@@ -405,16 +390,6 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Pachycephalasaurus
-      objectReference: {fileID: 0}
-    - target: {fileID: 3788359418448914620, guid: b53c7fa49ea01b6428270e391b772a25,
-        type: 3}
-      propertyPath: m_IsActive
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4058760312936666784, guid: b53c7fa49ea01b6428270e391b772a25,
-        type: 3}
-      propertyPath: DriftAngle
-      value: 5
       objectReference: {fileID: 0}
     - target: {fileID: 4058760312936666793, guid: b53c7fa49ea01b6428270e391b772a25,
         type: 3}

@@ -8,6 +8,7 @@ public class DinoController : MonoBehaviour
     public float moveSpeed = 5f;
     public float rotationSpeed = 60f;
     public float DriftAngle = 3f;
+    public float Decelerate = 5f;
     private Rigidbody rb;
     private float horizontalInput;
     private float verticalInput;
@@ -49,14 +50,18 @@ public class DinoController : MonoBehaviour
             
             if (Input.GetKeyDown(KeyCode.LeftShift))
             {
-                // 좌우를 반전시킴
+                // 드리프트 각도 조정
                 rotationSpeed = DriftAngle * rotationSpeed;
+                // 드리프트 감속
+                moveSpeed = moveSpeed - Decelerate;
             }
 
             if (Input.GetKeyUp(KeyCode.LeftShift))
             {
-                // 좌우를 반전시킨것 되돌림
-                rotationSpeed = 1/DriftAngle * rotationSpeed ;
+                // 드리프트 각도 복구
+                rotationSpeed = 1 / DriftAngle * rotationSpeed; 
+                // 드리프트 감속 복구
+                moveSpeed = moveSpeed + Decelerate;
             }
         }
     }
