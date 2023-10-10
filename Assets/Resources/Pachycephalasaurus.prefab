@@ -1553,13 +1553,15 @@ GameObject:
   - component: {fileID: 4058760312936666795}
   - component: {fileID: 4058760312936666794}
   - component: {fileID: 4058760312936666793}
+  - component: {fileID: -678032255376449518}
+  - component: {fileID: 3371590293403057626}
   m_Layer: 0
   m_Name: Pachycephalasaurus
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &4600748614977286662
 Transform:
   m_ObjectHideFlags: 0
@@ -1724,6 +1726,32 @@ MonoBehaviour:
   sceneViewId: 0
   InstantiationId: 0
   isRuntimeInstantiated: 0
+--- !u!75 &-678032255376449518
+ConstantForce:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3788359418448914620}
+  m_Enabled: 1
+  m_Force: {x: 0, y: -500, z: 0}
+  m_RelativeForce: {x: 0, y: 0, z: 0}
+  m_Torque: {x: 0, y: 0, z: 0}
+  m_RelativeTorque: {x: 0, y: 0, z: 0}
+--- !u!136 &3371590293403057626
+CapsuleCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3788359418448914620}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  m_Radius: 0.70098066
+  m_Height: 1.6130528
+  m_Direction: 1
+  m_Center: {x: 0, y: 0.79652643, z: 0.15034628}
 --- !u!1 &3829624223570540335
 GameObject:
   m_ObjectHideFlags: 0

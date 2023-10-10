@@ -1,6 +1,7 @@
 using System;
 using UnityEngine;
 using Photon.Pun;
+using UnityStandardAssets.Utility;
 
 [RequireComponent(typeof(Rigidbody))]
 public class DinoController : MonoBehaviour
@@ -15,6 +16,8 @@ public class DinoController : MonoBehaviour
     private Animator anim;
     private PhotonView view;
 
+
+    public static int start = 0;
     private void Awake()
     {
         rb = GetComponent<Rigidbody>();
@@ -30,49 +33,59 @@ public class DinoController : MonoBehaviour
 
     private void Update()
     {
-        if (view.IsMine)
-        {
-            // 움직임 관리
-            horizontalInput = Input.GetAxis("Horizontal");
-            verticalInput = Input.GetAxis("Vertical");
+        
+          if (view.IsMine)
+          {
+              Camera.main.GetComponent<CameraController>().target = transform;
+              if (start == 1)
+              {
+                  // 움직임 관리
+                  horizontalInput = Input.GetAxis("Horizontal");
+                  verticalInput = Input.GetAxis("Vertical");
 
-            if (Input.GetKeyDown(KeyCode.S) || (Input.GetKeyDown(KeyCode.DownArrow)))
-            {
-                // 좌우를 반전시킴
-                rotationSpeed = -rotationSpeed;
-            }
+                  if (Input.GetKeyDown(KeyCode.S) || (Input.GetKeyDown(KeyCode.DownArrow)))
+                  {
+                      // 좌우를 반전시킴
+                      rotationSpeed = -rotationSpeed;
+                  }
 
-            if (Input.GetKeyUp(KeyCode.S) || (Input.GetKeyUp(KeyCode.DownArrow)))
-            {
-                // 좌우를 반전시킨것 되돌림
-                rotationSpeed = -rotationSpeed;
-            }
-            
-            if (Input.GetKeyDown(KeyCode.LeftShift))
-            {
-                // 드리프트 각도 조정
-                rotationSpeed = DriftAngle * rotationSpeed;
-                // 드리프트 감속
-                moveSpeed = moveSpeed - Decelerate;
-            }
+                  if (Input.GetKeyUp(KeyCode.S) || (Input.GetKeyUp(KeyCode.DownArrow)))
+                  {
+                      // 좌우를 반전시킨것 되돌림
+                      rotationSpeed = -rotationSpeed;
+                  }
 
-            if (Input.GetKeyUp(KeyCode.LeftShift))
-            {
-                // 드리프트 각도 복구
-                rotationSpeed = 1 / DriftAngle * rotationSpeed; 
-                // 드리프트 감속 복구
-                moveSpeed = moveSpeed + Decelerate;
-            }
-            //키 입력시 애니매이션 재생
-            if (Input.GetAxis("Horizontal") != 0 || Input.GetAxis("Vertical")  != 0)
-            {
-                anim.SetBool("isRunning", true);
-            }
-            else
-            {
-                anim.SetBool("isRunning", false);
-            }
-        }
+                  if (Input.GetKeyDown(KeyCode.LeftShift))
+                  {
+                      // 드리프트 각도 조정
+                      rotationSpeed = DriftAngle * rotationSpeed;
+                      // 드리프트 감속
+                      moveSpeed = moveSpeed - Decelerate;
+                  }
+
+                  if (Input.GetKeyUp(KeyCode.LeftShift))
+                  {
+                      // 드리프트 각도 복구
+                      rotationSpeed = 1 / DriftAngle * rotationSpeed;
+                      // 드리프트 감속 복구
+                      moveSpeed = moveSpeed + Decelerate;
+                  }
+
+                  //키 입력시 애니매이션 재생
+                  if (Input.GetAxis("Horizontal") != 0 || Input.GetAxis("Vertical") != 0)
+                  {
+                      anim.SetBool("isRunning", true);
+                  }
+                  else
+                  {
+                      anim.SetBool("isRunning", false);
+                  }
+              }
+
+
+          }  
+        
+        
     }
 
     private void FixedUpdate()
