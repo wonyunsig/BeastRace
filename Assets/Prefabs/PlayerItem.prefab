@@ -442,6 +442,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   playerName: {fileID: 764976462659386410}
+  backgroundImage: {fileID: 764976463196227712}
   highlightColor: {r: 0.7797288, g: 0.5801887, b: 1, a: 0.78431374}
   leftArrowButton: {fileID: 764976463257860295}
   rightArrowButton: {fileID: 764976463633564264}

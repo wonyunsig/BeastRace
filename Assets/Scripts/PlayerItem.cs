@@ -12,7 +12,7 @@ using UnityEngine.Serialization;
 public class PlayerItem : MonoBehaviourPunCallbacks
 {
     public TextMeshProUGUI playerName;
-    private Image backgroundImage;
+    public Image backgroundImage;
     public Color highlightColor;
     public GameObject leftArrowButton;
     public GameObject rightArrowButton;
@@ -38,7 +38,7 @@ public class PlayerItem : MonoBehaviourPunCallbacks
     {
         backgroundImage.color = highlightColor;
         leftArrowButton.SetActive(true);
-        rightArrowButton.SetActive(false);
+        rightArrowButton.SetActive(true);
     }
 
     public void OnClickLeftArrow()

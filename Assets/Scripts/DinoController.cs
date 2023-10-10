@@ -63,20 +63,20 @@ public class DinoController : MonoBehaviour
                 // 드리프트 감속 복구
                 moveSpeed = moveSpeed + Decelerate;
             }
+            //키 입력시 애니매이션 재생
+            if (Input.GetAxis("Horizontal") != 0 || Input.GetAxis("Vertical")  != 0)
+            {
+                anim.SetBool("isRunning", true);
+            }
+            else
+            {
+                anim.SetBool("isRunning", false);
+            }
         }
     }
 
     private void FixedUpdate()
     {
-        //키 입력시 애니매이션 재생
-        if (Input.GetAxis("Horizontal") != 0 || Input.GetAxis("Vertical")  != 0)
-        {
-            anim.SetBool("isRunning", true);
-        }
-        else
-        {
-            anim.SetBool("isRunning", false);
-        }
 
         // 이동거리 계산
         Vector3 movementDirection = transform.forward * verticalInput;
