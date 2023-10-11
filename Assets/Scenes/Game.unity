@@ -777,7 +777,7 @@ TerrainCollider:
   m_Material: {fileID: 0}
   m_Enabled: 1
   m_TerrainData: {fileID: 15600000, guid: d216ab1bb2f42e44bb0c77a040f8eb11, type: 2}
-  m_EnableTreeColliders: 1
+  m_EnableTreeColliders: 0
 --- !u!218 &1092938464
 Terrain:
   m_ObjectHideFlags: 0
@@ -857,7 +857,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   playerPrefabs:
-  - {fileID: 0}
   - {fileID: 3997897924392502547, guid: db54b7fe12e373d40a6b53a979ecfb0c, type: 3}
   - {fileID: 3788359418448914620, guid: b53c7fa49ea01b6428270e391b772a25, type: 3}
   - {fileID: 6805976632861168564, guid: ce3eabaa3bdeabc4385b7c6a9f8f3e99, type: 3}
@@ -1228,7 +1227,7 @@ TerrainCollider:
   m_Material: {fileID: 0}
   m_Enabled: 1
   m_TerrainData: {fileID: 0}
-  m_EnableTreeColliders: 1
+  m_EnableTreeColliders: 0
 --- !u!1 &1957786227
 GameObject:
   m_ObjectHideFlags: 0
@@ -1959,7 +1958,7 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 233295489}
         m_TargetAssemblyTypeName: BackToLobby, Assembly-CSharp
-        m_MethodName: ToLobby
+        m_MethodName: LeaveGame
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -2387,7 +2386,7 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 233295489}
         m_TargetAssemblyTypeName: BackToLobby, Assembly-CSharp
-        m_MethodName: ToLobby
+        m_MethodName: LeaveGame
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}

@@ -4,12 +4,13 @@ using UnityEngine;
 using UnityEngine.SceneManagement;
 using Photon.Pun;
 
-public class BackToLobby : MonoBehaviour
+public class BackToLobby : MonoBehaviourPunCallbacks
 {
-    public void ToLobby()
+
+    public void LeaveGame()
     {
         PhotonNetwork.Disconnect();
-        PhotonNetwork.LeaveRoom();
+        PhotonNetwork.JoinLobby();
         SceneManager.LoadScene("Lobby");
     }
 }
