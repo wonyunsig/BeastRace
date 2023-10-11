@@ -1697,6 +1697,7 @@ MonoBehaviour:
   rotationSpeed: 45
   DriftAngle: 3
   Decelerate: 6
+  view: {fileID: 0}
 --- !u!114 &1643304124447611990
 MonoBehaviour:
   m_ObjectHideFlags: 0

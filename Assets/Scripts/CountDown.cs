@@ -7,7 +7,6 @@ public class CountDown : MonoBehaviour
 {
     public float countdown = 3f;
     public TextMeshProUGUI text;
-    public DinoController DinoController;
 
     // Update is called once per frame
     void Update()

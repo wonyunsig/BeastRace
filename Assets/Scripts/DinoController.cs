@@ -14,7 +14,7 @@ public class DinoController : MonoBehaviour
     private float horizontalInput;
     private float verticalInput;
     private Animator anim;
-    private PhotonView view;
+    public PhotonView view;
 
 
     public static int start = 0;

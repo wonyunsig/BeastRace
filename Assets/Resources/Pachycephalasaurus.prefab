@@ -1634,6 +1634,7 @@ MonoBehaviour:
   rotationSpeed: 50
   DriftAngle: 5
   Decelerate: 6
+  view: {fileID: 0}
 --- !u!114 &4058760312936666796
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1697,7 +1698,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   ShowLayerWeightsInspector: 1
   ShowParameterInspector: 1
-  m_SynchronizeParameters: []
+  m_SynchronizeParameters:
+  - Type: 4
+    SynchronizeType: 0
+    Name: isRunning
   m_SynchronizeLayers:
   - SynchronizeType: 0
     LayerIndex: 0
