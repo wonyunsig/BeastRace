@@ -412,7 +412,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 0.6652609, g: 0.36320752, b: 1, a: 0.78431374}
+  m_Color: {r: 0, g: 1, b: 0.5031409, a: 0.78431374}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
@@ -443,7 +443,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   playerName: {fileID: 764976462659386410}
   backgroundImage: {fileID: 764976463196227712}
-  highlightColor: {r: 0.7797288, g: 0.5801887, b: 1, a: 0.78431374}
+  highlightColor: {r: 0.3726415, g: 1, b: 0.61393565, a: 0.78431374}
   leftArrowButton: {fileID: 764976463257860295}
   rightArrowButton: {fileID: 764976463633564264}
   playerAvatar: {fileID: 764976462373652425}
