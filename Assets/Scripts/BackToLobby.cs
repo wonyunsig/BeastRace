@@ -3,19 +3,22 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using Photon.Pun;
+using Photon.Realtime;
 
 public class BackToLobby : MonoBehaviourPunCallbacks
 {
 
     public void LeaveGame()
     {
-        PhotonNetwork.LoadLevel("Lobby");
-        PhotonNetwork.LeaveRoom();
+        if (PhotonNetwork.NetworkClientState != ClientState.Leaving)
+        {
+            Time.timeScale = 1f;
+            PhotonNetwork.LeaveRoom();
+        }
     }
-    
 
     public override void OnConnectedToMaster()
     {
-        PhotonNetwork.JoinLobby();
+        PhotonNetwork.LoadLevel("Lobby");
     }
 }
