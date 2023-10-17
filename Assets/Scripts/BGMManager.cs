@@ -6,13 +6,11 @@ using UnityEngine.SceneManagement;
 
 public class BGMManager : MonoBehaviour
 {
-    public int targetSceneIndex;
     public AudioSource audioSource;
     
     void Awake ()
     {
-        int currentSceneIndex = SceneManager.GetActiveScene().buildIndex;
-
+        audioSource = GetComponent<AudioSource>();
         var objs = FindObjectsOfType<BGMManager>();
         if (objs.Length == 1)
         {
@@ -23,10 +21,6 @@ public class BGMManager : MonoBehaviour
             Destroy(gameObject);
         }
 
-        if (currentSceneIndex == targetSceneIndex)
-        {
-            audioSource.Stop();
-        }
     }
 
 }
